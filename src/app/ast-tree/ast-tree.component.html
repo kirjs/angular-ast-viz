@@ -1,0 +1,31 @@
+<ng-container *ngIf="node">
+  <div *ngIf="node.type" fxLayout>
+    <div class="box {{node.type}}" (click)="selectNode.emit(node)" fxLayout>
+      <span class="key">{{key ? key + ': ' : ''}}</span>
+      <span class="node">{{node.type}}</span>
+    </div>
+    <span class="props" *ngFor="let key of stringKeys">{{key}}={{node[key]}}</span>
+  </div>
+  <div *ngIf="node.type" style="padding-left: 20px;">
+    <app-ast-tree *ngFor="let key of objectKeys" [node]="node[key]" (selectNode)="selectNode.emit($event)"
+                  [key]="key"></app-ast-tree>
+  </div>
+  <ng-container *ngIf="isArray">
+    <ng-container *ngIf="node.length > 0">
+      <div class="box Array">{{key}}: [</div>
+      <div style="margin-left: 20px" *ngFor="let child of node">
+        <app-ast-tree (selectNode)="selectNode.emit($event)" [node]="child"></app-ast-tree>
+      </div>
+      <div class="box Array">]</div>
+    </ng-container>
+    <ng-container *ngIf="node.length ===  0">
+      <div class="box Array">{{key}}: []</div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="!node">
+  <div class="box Empty" fxLayout>
+    <span class="key">{{key ? key + ': ' : ''}}</span>
+    <span class="node">Null</span>
+  </div>
+</ng-container>
