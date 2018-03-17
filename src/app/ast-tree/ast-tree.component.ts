@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 const systemKeys = new Set(['type', 'start', 'end', 'loc', 'comments', 'tokens', 'sourceType', 'directives', 'extra']);
 
 @Component({
-  selector: 'app-ast-tree',
+  selector: 'ast-viz',
   templateUrl: './ast-tree.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./ast-tree.component.css']
 })
 export class AstTreeComponent implements OnInit {

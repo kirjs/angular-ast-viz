@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import * as babylon from 'babylon';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ast-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

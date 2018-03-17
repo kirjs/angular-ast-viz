@@ -1,6 +1,6 @@
 <div fxLayout style="height: 100%">
   <textarea #codeArea (input)="generateAst(codeArea.value)" [value]="code"></textarea>
-  <app-ast-tree [node]="ast.program" (selectNode)="selectNode($event)"></app-ast-tree>
+  <ast-viz [node]="ast.program" (selectNode)="selectNode($event)"></ast-viz>
   <pre>
     {{ast.program|json}}
   </pre>

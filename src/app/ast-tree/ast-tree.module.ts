@@ -9,5 +9,5 @@ import { AstTreeComponent } from './ast-tree.component';
   declarations: [AstTreeComponent],
   exports: [AstTreeComponent]
 })
-export class AstTreeModule {
+export class AstVizModule {
 }
